@@ -306,3 +306,9 @@ class FreeNASISCSIDriver(driver.ISCSIDriver):
         if volume['size'] != freenas_new_size:
             self.common._extend_volume(freenas_volume['name'],
                                        freenas_new_size)
+
+    def clone_image(self, context, volume, image_location, image_meta, image_service):
+        """Create a volume efficiently from an existing image."""
+        LOG.info('iXsystems Clone Image')
+        LOG.info("clone_image(%s, %s, %s, %s, %s)" % (context, volume, image_location, image_meta, image_service))
+        return None, False
